@@ -1,0 +1,8 @@
+products:
+   Spark1X/src/main/scala/org/apache/spark/ml/image/MLlibExample.scala -> Spark1X/target/classes/org/apache/spark/ml/image/MLlibExample.class
+binary dependencies:
+   Spark1X/src/main/scala/org/apache/spark/ml/image/MLlibExample.scala -> /home/yuhao/programs/jdk1.8.0_121/jre/lib/rt.jar
+source dependencies:
+external dependencies:
+class names:
+   Spark1X/src/main/scala/org/apache/spark/ml/image/MLlibExample.scala -> org.apache.spark.ml.image.MLlibExample

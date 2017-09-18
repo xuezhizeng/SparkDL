@@ -1,0 +1,16 @@
+products:
+   Spark2X/src/test/scala/org/apache/spark/ml/image/DFInterface/ImageTransformerSpec.scala -> Spark2X/target/test-classes/org/apache/spark/ml/image/DFInterface/ImageTransformerSpec$$anonfun$1.class
+   Spark2X/src/test/scala/org/apache/spark/ml/image/DFInterface/ImageTransformerSpec.scala -> Spark2X/target/test-classes/org/apache/spark/ml/image/DFInterface/ImageTransformerSpec.class
+binary dependencies:
+   Spark2X/src/test/scala/org/apache/spark/ml/image/DFInterface/ImageTransformerSpec.scala -> /home/yuhao/.m2/repository/org/apache/spark/spark-sql_2.11/2.1.0/spark-sql_2.11-2.1.0.jar
+   Spark2X/src/test/scala/org/apache/spark/ml/image/DFInterface/ImageTransformerSpec.scala -> /home/yuhao/.m2/repository/org/scala-lang/scala-library/2.11.8/scala-library-2.11.8.jar
+   Spark2X/src/test/scala/org/apache/spark/ml/image/DFInterface/ImageTransformerSpec.scala -> /home/yuhao/.m2/repository/org/scalatest/scalatest_2.11/2.2.4/scalatest_2.11-2.2.4.jar
+   Spark2X/src/test/scala/org/apache/spark/ml/image/DFInterface/ImageTransformerSpec.scala -> /home/yuhao/programs/jdk1.8.0_121/jre/lib/rt.jar
+   Spark2X/src/test/scala/org/apache/spark/ml/image/DFInterface/ImageTransformerSpec.scala -> core/target/SparkDL-core_2.11-0.1-SNAPSHOT.jar
+source dependencies:
+external dependencies:
+   Spark2X/src/test/scala/org/apache/spark/ml/image/DFInterface/ImageTransformerSpec.scala -> org.apache.spark.ml.image.DFInterface.ImageReader
+   Spark2X/src/test/scala/org/apache/spark/ml/image/DFInterface/ImageTransformerSpec.scala -> org.apache.spark.ml.image.DFInterface.ImageTransformer
+class names:
+   Spark2X/src/test/scala/org/apache/spark/ml/image/DFInterface/ImageTransformerSpec.scala -> org.apache.spark.ml.image.DFInterface.ImageTransformerSpec
+   Spark2X/src/test/scala/org/apache/spark/ml/image/DFInterface/ImageTransformerSpec.scala -> org.apache.spark.ml.image.DFInterface.ImageTransformerSpec$$anonfun$1
