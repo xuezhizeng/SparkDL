@@ -20,7 +20,7 @@ object ReadImageUtil extends Serializable {
     val data = new Array[Float](bytes.length)
     var i = 0
     while (i < data.length) {
-      data(i) = (bytes(i) & 0xff) / 255 * range
+      data(i) = (bytes(i) & 0xff) / 255.0f * range
       i += 1
     }
     (data, Array(3, widthAfterScale, heightAfterScale))

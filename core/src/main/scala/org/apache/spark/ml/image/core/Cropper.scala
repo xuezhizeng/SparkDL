@@ -10,7 +10,7 @@ object BGRImageCropper {
 
 
 class BGRImageCropper(cW: Int, cH: Int, cropperMethod: String)
-    extends TransformStep[(Array[Float], Array[Int]), (Array[Float], Array[Int])] {
+    extends ProcessStep[(Array[Float], Array[Int]), (Array[Float], Array[Int])] {
 
   override def apply(prev: (Array[Float], Array[Int])): (Array[Float], Array[Int]) = {
     val width = prev._2(1)

@@ -88,7 +88,6 @@ spark-warehouse/
 .RHistory
 .Rhistory
 *.Rproj
-*.Rproj*
- bak/
+*.Rproj.*
 
 .Rproj.user

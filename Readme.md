@@ -14,10 +14,10 @@ This is especially helpful for low latency requirement (model serving) or
 prediction on a platform other than Spark.
 
 ### Spark 1X
-Support RDD-based API to support Spark 1.5 or Spark 1.6
+Support RDD-based API for Spark 1.5 or Spark 1.6
 
 ### Spark 2X
-Support DataFrame-based API to support Spark 2.0+
+Support DataFrame-based API for Spark 2.0+
 
 ## Modules 
 

@@ -1,7 +1,7 @@
 package org.apache.spark.ml.image.DFInterface
 
 import org.apache.spark.ml.Transformer
-import org.apache.spark.ml.image.core.TransformStep
+import org.apache.spark.ml.image.core.ProcessStep
 import org.apache.spark.ml.param.ParamMap
 import org.apache.spark.ml.param.shared.{HasInputCol, HasOutputCol}
 import org.apache.spark.ml.util.Identifiable
@@ -12,10 +12,10 @@ import org.apache.spark.sql.{DataFrame, Dataset, Row}
 
 class ImageTransformer(
     override val uid: String,
-    val steps: TransformStep[(Array[Float], Array[Int]), (Array[Float], Array[Int])]
+    val steps: ProcessStep[(Array[Float], Array[Int]), (Array[Float], Array[Int])]
   ) extends Transformer with HasInputCol with HasOutputCol {
 
-  def this(steps: TransformStep[(Array[Float], Array[Int]), (Array[Float], Array[Int])]) =
+  def this(steps: ProcessStep[(Array[Float], Array[Int]), (Array[Float], Array[Int])]) =
     this(Identifiable.randomUID("minMaxScal"), steps)
 
   def setInputCol(value: String): this.type = set(inputCol, value)

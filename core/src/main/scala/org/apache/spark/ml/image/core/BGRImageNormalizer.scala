@@ -7,7 +7,7 @@ object BGRImageNormalizer {
 
 
 class BGRImageNormalizer (mean: Array[Float], std: Array[Float])
-  extends TransformStep[(Array[Float], Array[Int]), (Array[Float], Array[Int])] {
+  extends ProcessStep[(Array[Float], Array[Int]), (Array[Float], Array[Int])] {
 
   override def apply(prev: (Array[Float], Array[Int])): (Array[Float], Array[Int]) = {
     val content = prev._1
