@@ -15,6 +15,12 @@ public class OpenCV {
     private static boolean isLoaded = false;
     private static File tmpFile = null;
 
+    public static void loadAsNecessary() {
+        if (!OpenCV.isOpenCVLoaded()) {
+            OpenCV.load();
+        }
+    }
+
     public static void load() {
         try {
             String jopencvFileName = "opencv/linux/x86_64/libopencv_java320.so";
