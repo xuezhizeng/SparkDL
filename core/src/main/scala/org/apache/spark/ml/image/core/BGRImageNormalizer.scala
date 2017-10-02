@@ -1,36 +1,46 @@
 package org.apache.spark.ml.image.core
 
-object BGRImageNormalizer {
-  def apply(mean: Array[Float], std: Array[Float]): BGRImageNormalizer =
-    new BGRImageNormalizer(mean, std)
-}
+import java.util
 
+import org.opencv.core.{Core, CvType, Mat, Scalar}
 
-class BGRImageNormalizer (mean: Array[Float], std: Array[Float])
-  extends ProcessStep[(Array[Float], Array[Int]), (Array[Float], Array[Int])] {
+class BGRImageNormalizer (meanR: Float, meanG: Float, meanB: Float,
+    stdR: Float = 1, stdG: Float = 1, stdB: Float = 1)
 
-  override def apply(prev: (Array[Float], Array[Int])): (Array[Float], Array[Int]) = {
-    val content = prev._1
-    val dimension = prev._2
-    require(content.length == dimension.product)
+  extends ProcessStep[cMat, cMat] {
 
-    val meanR = mean(0)
-    val meanG = mean(1)
-    val meanB = mean(2)
-
-    val stdR = std(0)
-    val stdG = std(1)
-    val stdB = std(2)
-
-    require(content.length % 3 == 0)
-    var i = 0
-    while (i < content.length) {
-      content(i + 2) = ((content(i + 2) - meanR) / stdR).toFloat
-      content(i + 1) = ((content(i + 1) - meanG) / stdG).toFloat
-      content(i + 0) = ((content(i + 0) - meanB) / stdB).toFloat
-      i += 3
-    }
-    (content, dimension)
+  override def apply(prev: cMat): cMat = {
+    BGRImageNormalizer.transform(prev, meanR, meanG, meanB, stdR, stdG, stdB)
   }
 
 }
+
+object BGRImageNormalizer {
+  def apply(meanR: Float, meanG: Float, meanB: Float,
+            stdR: Float = 1, stdG: Float = 1, stdB: Float = 1): BGRImageNormalizer =
+    new BGRImageNormalizer(meanR, meanG, meanB, stdR, stdG, stdB)
+
+  def transform(input: cMat, meanR: Float, meanG: Float, meanB: Float,
+                stdR: Float = 1, stdG: Float = 1, stdB: Float = 1): cMat = {
+    if (input.`type`() != CvType.CV_32FC3) {
+      input.convertTo(input, CvType.CV_32FC3)
+    }
+    val inputChannels = new util.ArrayList[Mat]()
+    Core.split(input, inputChannels)
+    require(inputChannels.size() == 3)
+    val outputChannels = inputChannels
+
+    Core.subtract(inputChannels.get(0), new Scalar(meanB), outputChannels.get(0))
+    Core.subtract(inputChannels.get(1), new Scalar(meanG), outputChannels.get(1))
+    Core.subtract(inputChannels.get(2), new Scalar(meanR), outputChannels.get(2))
+    if (stdB != 1) Core.divide(outputChannels.get(0), new Scalar(stdB), outputChannels.get(0))
+    if (stdG != 1) Core.divide(outputChannels.get(1), new Scalar(stdG), outputChannels.get(1))
+    if (stdR != 1) Core.divide(outputChannels.get(2), new Scalar(stdR), outputChannels.get(2))
+    Core.merge(outputChannels, input)
+
+    (0 until inputChannels.size()).foreach(inputChannels.get(_).release())
+
+    input
+  }
+}
+

@@ -16,3 +16,9 @@ class ChainedProcessStep[A, B, C](first: ProcessStep[A, B], last: ProcessStep[B,
     last(first(prev))
   }
 }
+
+object ProcessStep {
+
+  def Hue(delta: Float): ProcessStep[cMat, cMat] = org.apache.spark.ml.image.core.Hue(delta)
+
+}

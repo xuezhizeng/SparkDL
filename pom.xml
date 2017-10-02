@@ -17,6 +17,7 @@
         <module>core</module>
         <module>Spark1X</module>
         <module>Spark2X</module>
+        <module>opencv-analytics</module>
     </modules>
 
     <developers>

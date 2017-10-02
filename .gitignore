@@ -54,6 +54,8 @@ lint-r-report.log
 log/
 logs/
 out/
+core/target/
+core/target
 project/boot/
 project/build/target/
 project/plugins/lib_managed/
@@ -91,3 +93,8 @@ spark-warehouse/
 *.Rproj.*
 
 .Rproj.user
+Spark2X/target
+Spark1X/target
+SparkDL.iml
+Spark2X/SparkDL-Spark2X_2.11.iml
+Spark1X/SparkDL-Spark1X_2.10.iml
