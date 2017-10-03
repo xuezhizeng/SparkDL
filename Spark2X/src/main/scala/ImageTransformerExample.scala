@@ -11,6 +11,7 @@ object ImageTransformerExample {
   def main(args: Array[String]): Unit = {
     val spark = SparkSession.builder().master("local[1]").appName("test").getOrCreate()
     val resource = getClass.getClassLoader.getResource("image/ILSVRC2012_val_00000003.JPEG")
+
     val imageDF = BGRImageReader.readImagesToBytes(Paths.get(resource.toURI).toAbsolutePath.toString, spark, 256)
 
     val steps = BytesToMat() ->
